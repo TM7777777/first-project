@@ -1,0 +1,15 @@
+* {
+  box-sizing: border-box;
+}
+
+.input {
+  padding: 10px;
+  margin: 10px;
+}
+
+.button {
+  align-items: flex-start;
+  padding: 10px;
+  margin: 25px;
+  background-color: green;
+}

@@ -4,27 +4,22 @@ const list = document.querySelector('ul');
 
 let arr = ['buy bread', 'go for a walk', 'to do smth', 'drink water'];
 
-arr.map((el, ind) => {
-  list.innerHTML += `<li class='numb ${ind}'><span><b>${
-    ind + 1 + ')'
-  }</b> ${el}</span><button class="del ${ind}">X</button></li>`;
-  delBtn();
-});
+render();
 
 button.addEventListener('click', function () {
   if (input.value === '') {
     alert('write smth');
+  } else if (verify()) {
+    alert('it already exists');
   } else {
-    const ind = arr.length;
-    list.innerHTML += `<li class='numb ${ind}'><span><b>${ind + 1 + ')'}</b> ${
-      input.value
-    }</span><button class="del ${ind}">X</button></li>`;
+    verify();
     arr.push(input.value);
+    input.value = '';
+    render();
     delBtn();
     if (arr.length > 0) {
       document.getElementsByClassName('ul')[0].style.borderStyle = 'solid';
     }
-    console.log(arr);
   }
 });
 
@@ -34,18 +29,25 @@ function delBtn() {
   delBtnsArr.map((el) => {
     el.addEventListener('click', function (e) {
       const ind = +e.target.className.replace('del', '');
-      list.innerHTML = '';
       arr = arr.filter((el, id) => id !== ind);
-      arr.map((el, ind) => {
-        list.innerHTML += `<li class='numb ${ind}'><span><b>${
-          ind + 1 + ')'
-        }</b> ${el}</span><button class="del ${ind}">X</button></li>`;
-        delBtn();
-      });
+      render();
       if (arr.length < 1) {
         document.getElementsByClassName('ul')[0].style.borderStyle = 'none';
       }
-      console.log(arr);
     });
   });
+}
+
+function render() {
+  list.innerHTML = '';
+  arr.map((el, ind) => {
+    list.innerHTML += `<li class='numb ${ind}'><span><b>${
+      ind + 1 + ')'
+    }</b> ${el}</span><button class="del ${ind}">X</button></li>`;
+    delBtn();
+  });
+}
+
+function verify() {
+  return arr.some((el) => el === input.value);
 }

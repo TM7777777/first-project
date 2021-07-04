@@ -8,26 +8,43 @@ button {
   cursor: pointer;
   border-width: 0px;
 }
+li {
+  background-color: rgb(177, 174, 174);
+  border-radius: 5px;
+  margin: 10px 4px;
+  padding: 5px 2px;
+}
+
+li span {
+  padding-left: 10px;
+}
 .container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   align-content: center;
+  margin-top: 40px;
+}
+
+.container div {
+  max-width: 340px;
 }
 
 .input {
+  outline: none;
   border-style: groove;
   font-size: 15px;
   padding: 10px;
-  margin: 10px;
+  margin: 10px 10px 10px 0px;
 }
 
 .addBtn {
+  min-width: 86px;
   border-radius: 10px;
   font-size: 12px;
   padding: 15px;
-  margin: 15px;
+  margin: 15px 0px 15px 30px;
   background-color: rgb(103, 163, 47);
 }
 
@@ -61,7 +78,8 @@ button {
 
 .ul {
   border-style: solid;
-  border-color: rgb(139, 125, 125);
+  border-width: 1px;
+  border-color: rgb(0, 0, 0);
 }
 
 .numb {

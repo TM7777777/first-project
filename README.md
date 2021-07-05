@@ -1,1 +1,1 @@
-# myFirstProject
+# my first project using JS

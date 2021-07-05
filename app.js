@@ -34,7 +34,6 @@ function delBtn() {
       if (document.getElementsByClassName(`val ${ind}`)[0].checked) {
         todos = todos.filter((el) => el.id !== ind);
         render();
-        console.log(todos, todos.length);
         if (todos.length < 1) {
           document.getElementsByClassName('ul')[0].style.borderStyle = 'none';
         }

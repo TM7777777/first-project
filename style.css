@@ -3,22 +3,34 @@
   padding: 0px;
   margin: 0px;
 }
-
+body {
+  background-image: url('03.jpg');
+  background-size: cover;
+}
 button {
   cursor: pointer;
   border-width: 0px;
 }
 li {
+  text-decoration: none;
   background-color: rgb(177, 174, 174);
   border-radius: 5px;
   margin: 10px 4px;
   padding: 5px 2px;
 }
-
-li span {
-  min-width: 130px;
+li b {
   padding-left: 10px;
 }
+li span {
+  display: flex;
+  align-items: center;
+}
+li input {
+  display: flex;
+  height: 20px;
+  width: 20px;
+}
+
 .container {
   display: flex;
   flex-direction: column;
@@ -69,7 +81,7 @@ li span {
   height: 30px;
   width: 30px;
   padding: 4px;
-  margin: 4px 4px 4px 140px;
+  margin: 4px;
 }
 
 .del:hover {

@@ -7,7 +7,6 @@ let todos = [
   { id: 2, text: 'do smth', status: false },
   { id: 3, text: 'drink water', status: false },
 ];
-
 render();
 
 button.addEventListener('click', function () {
@@ -47,15 +46,31 @@ function delBtn() {
 function render() {
   list.innerHTML = '';
   todos.map((el) => {
-    list.innerHTML += `<li class='numb ${el.id}'><input type="checkbox" value="${
-      el.status
-    }" class="val ${el.id}"><span><b>${el.id + ')'}</b> ${el.text}</span><button class="del ${
+    list.innerHTML += `<li class='numb ${el.id}'><span class="span ${
       el.id
-    }">X</button></li>`;
+    }"><input type="checkbox" value="${el.status}" class="val ${el.id}" id="${el.id}"><b>${
+      el.id + ')'
+    }</b> ${el.text}</span><button class="del ${el.id}">X</button></li>`;
+    strikeOut();
     delBtn();
   });
 }
 
 function verify() {
   return todos.some((el) => el.text === input.value);
+}
+
+function strikeOut() {
+  const strikeArr = document.querySelectorAll('.val');
+  Array.from(strikeArr).map((el) => {
+    el.onclick = function (e) {
+      if (e.target.checked) {
+        document.getElementsByClassName(`span ${el.id}`)[0].style.textDecoration = 'line-through';
+        todos[`${el.id - 1}`].status = true;
+      } else {
+        document.getElementsByClassName(`span ${el.id}`)[0].style.textDecoration = 'none';
+        todos[`${el.id - 1}`].status = false;
+      }
+    };
+  });
 }

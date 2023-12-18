@@ -1,1 +1,1 @@
-# my first project using JS
+# todo list using js
